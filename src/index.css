@@ -1,0 +1,456 @@
+/* Global responsive styles for FIXORA PRO */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+/* Modern scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(135deg, #4e5bc6 0%, #5e377e 100%);
+}
+
+/* Firefox scrollbars */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #667eea #f1f1f1;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Prevent horizontal scrolling on all breakpoints */
+.MuiContainer-root {
+  max-width: 100% !important;
+  padding-left: 16px !important;
+  padding-right: 16px !important;
+}
+
+/* Responsive table improvements */
+.MuiTableContainer-root {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* Mobile-specific improvements */
+@media (max-width: 768px) {
+  .MuiDrawer-paper {
+    max-width: 80vw !important;
+  }
+  
+  .MuiGrid-container {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  
+  .MuiGrid-item {
+    padding-left: 8px !important;
+    padding-top: 8px !important;
+  }
+
+  /* Enhanced mobile responsiveness */
+  .MuiCard-root {
+    margin-bottom: 8px !important;
+  }
+
+  .MuiButton-root {
+    min-height: 44px !important;
+    font-size: 14px !important;
+  }
+
+  .MuiTextField-root {
+    margin-bottom: 12px !important;
+  }
+
+  .MuiDialog-paper {
+    margin: 16px !important;
+    max-width: calc(100vw - 32px) !important;
+  }
+
+  /* Touch-friendly interactions */
+  .MuiIconButton-root {
+    min-width: 44px !important;
+    min-height: 44px !important;
+  }
+
+  /* Better table responsiveness */
+  .MuiTable-root {
+    font-size: 12px !important;
+  }
+
+  .MuiTableCell-root {
+    padding: 8px 4px !important;
+  }
+}
+
+/* Tablet-specific improvements */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .MuiContainer-root {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+}
+
+/* Ensure content doesn't exceed viewport */
+.MuiBox-root {
+  max-width: 100%;
+}
+
+/* Fix for potential overflow issues */
+.MuiPaper-root {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Media Player Interface Styles */
+.media-player-interface {
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.media-player-header {
+  background-color: #f5f5f5;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.media-player-sidebar {
+  background-color: #f8f9fa;
+  border-right: 1px solid #e0e0e0;
+}
+
+.media-player-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+}
+
+.media-player-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.media-player-progress {
+  background-color: #ff9800;
+  height: 80px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.media-player-feedback {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1001;
+}
+
+/* Device selection grid */
+.device-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.device-card {
+  height: 120px;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.device-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.device-card.selected {
+  border: 2px solid #1976d2;
+}
+
+/* Progress steps */
+.progress-steps {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.progress-step {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.progress-step.active {
+  background-color: #1976d2;
+}
+
+.progress-step.inactive {
+  background-color: #e0e0e0;
+  color: #666;
+}
+
+/* Responsive typography scaling */
+@media (max-width: 600px) {
+  .MuiTypography-h4 {
+    font-size: 1.5rem !important;
+  }
+  
+  .MuiTypography-h5 {
+    font-size: 1.25rem !important;
+  }
+  
+  .MuiTypography-h6 {
+    font-size: 1.1rem !important;
+  }
+  
+  /* Button responsiveness */
+  .MuiButton-root {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+  }
+  
+  /* Chip responsiveness */
+  .MuiChip-root {
+    font-size: 0.7rem !important;
+    height: 24px !important;
+  }
+  
+  /* Card content padding */
+  .MuiCardContent-root {
+    padding: 12px !important;
+  }
+}
+
+/* Tablet-specific adjustments */
+@media (min-width: 601px) and (max-width: 960px) {
+  .MuiTypography-h4 {
+    font-size: 1.75rem !important;
+  }
+  
+  .MuiButton-root {
+    font-size: 0.875rem !important;
+    padding: 8px 16px !important;
+  }
+  
+  .MuiCardContent-root {
+    padding: 16px !important;
+  }
+}
+
+/* Responsive table improvements */
+.MuiTable-root {
+  min-width: unset !important;
+}
+
+.MuiTableCell-root {
+  padding: 8px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+@media (max-width: 768px) {
+  .MuiTableCell-root {
+    padding: 4px 6px !important;
+    font-size: 0.8rem !important;
+    max-width: 120px !important;
+  }
+  
+  .MuiTableHead-root .MuiTableCell-root {
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+    padding: 8px 6px !important;
+  }
+  
+  /* Table card specific improvements */
+  .MuiTableRow-root {
+    height: auto !important;
+    min-height: 48px !important;
+  }
+  
+  /* Chip responsiveness in tables */
+  .MuiTableCell-root .MuiChip-root {
+    font-size: 0.7rem !important;
+    height: 20px !important;
+    max-width: 80px !important;
+  }
+  
+  /* Typography in table cells */
+  .MuiTableCell-root .MuiTypography-root {
+    font-size: 0.8rem !important;
+    line-height: 1.2 !important;
+  }
+  
+  /* Action buttons in tables */
+  .MuiTableCell-root .MuiIconButton-root {
+    padding: 4px !important;
+    margin: 0 2px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .MuiTableCell-root {
+    padding: 6px 8px !important;
+    font-size: 0.875rem !important;
+    max-width: 150px !important;
+  }
+  
+  .MuiTableCell-root .MuiChip-root {
+    font-size: 0.75rem !important;
+    height: 22px !important;
+  }
+}
+
+/* Form field responsiveness */
+@media (max-width: 768px) {
+  .MuiTextField-root {
+    margin-bottom: 8px !important;
+  }
+  
+  .MuiFormControl-root {
+    margin-bottom: 8px !important;
+  }
+}
+
+/* POS Terminal specific styles */
+@media (max-width: 768px) {
+  /* POS product cards */
+  .MuiCard-root {
+    min-height: 100px !important;
+  }
+  
+  /* POS cart items */
+  .MuiListItem-root {
+    padding: 8px 12px !important;
+  }
+  
+  /* POS payment buttons */
+  .MuiButton-contained {
+    min-height: 44px !important;
+    font-weight: 600 !important;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) {
+  .MuiCard-root:hover {
+    transform: none !important;
+  }
+  
+  .MuiCard-root:active {
+    transform: scale(0.98) !important;
+    transition: transform 0.1s ease !important;
+  }
+}
+
+/* Smooth animations for better UX */
+.MuiCard-root {
+  transition: all 0.2s ease-in-out !important;
+}
+
+.MuiButton-root {
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Table Card Enhancements */
+@media (max-width: 768px) {
+  /* Make table rows more touch-friendly */
+  .MuiTableRow-root {
+    cursor: pointer !important;
+    transition: background-color 0.2s ease !important;
+  }
+  
+  .MuiTableRow-root:active {
+    background-color: rgba(25, 118, 210, 0.08) !important;
+  }
+  
+  /* Improve table header visibility */
+  .MuiTableHead-root {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10 !important;
+  }
+  
+  .MuiTableHead-root .MuiTableCell-root {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(8px) !important;
+  }
+  
+  /* Better visual hierarchy in table cells */
+  .MuiTableCell-root .MuiTypography-h6 {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+  }
+  
+  .MuiTableCell-root .MuiTypography-body1 {
+    font-size: 0.8rem !important;
+  }
+  
+  .MuiTableCell-root .MuiTypography-body2 {
+    font-size: 0.75rem !important;
+  }
+  
+  /* Compact chips in table cells */
+  .MuiTableCell-root .MuiChip-label {
+    padding: 0 6px !important;
+  }
+}
+
+/* Enhanced hover effects for desktop */
+@media (min-width: 769px) {
+  .MuiTableRow-root:hover {
+    background-color: rgba(25, 118, 210, 0.04) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+}
