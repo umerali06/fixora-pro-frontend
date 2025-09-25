@@ -57,7 +57,6 @@ import {
   TrendingDown as TrendingDownIcon,
   CalendarToday as CalendarTodayIcon
 } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
 import LabelDesigner from '../../components/LabelDesigner/LabelDesigner';
 import DashboardHeader from '../../components/Layout/DashboardHeader';
 import { labelsAPI } from '../../services/api';
