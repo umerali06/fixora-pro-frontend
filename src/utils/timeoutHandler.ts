@@ -38,7 +38,7 @@ export const withRetry = async <T>(
       
       if (i < maxRetries - 1) {
         console.log(`Retry ${i + 1}/${maxRetries} after ${currentDelay}ms delay`);
-        await new Promise(resolve => setTimeout(resolve, currentDelay));
+        await new Promise(resolve => setTimeout(() => resolve(undefined), currentDelay));
         currentDelay *= 2; // Exponential backoff
       }
     }

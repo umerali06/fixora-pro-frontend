@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import {
   Box,
   Card,
@@ -46,10 +46,8 @@ import {
   Error as ErrorIcon,
   Print as PrintIcon,
   Download as DownloadIcon,
-  QrCode as QrCodeIcon
 } from '@mui/icons-material';
-import { useTranslation } from 'react-i18next';
-import { useAppSelector, useAppDispatch } from '../../store/hooks';
+import { useAppSelector } from '../../store/hooks';
 import { warrantiesAPI, repairTicketAPI } from '../../services/api';
 import { getOrgIdFromToken } from '../../utils/auth';
 import toast from 'react-hot-toast';
@@ -130,8 +128,6 @@ interface EditWarrantyForm {
 }
 
 const WarrantiesPage: React.FC = () => {
-  const { t } = useTranslation();
-  const dispatch = useAppDispatch();
   const { isAuthenticated } = useAppSelector((state) => state.auth);
 
   // State
@@ -265,7 +261,7 @@ const WarrantiesPage: React.FC = () => {
   };
 
   // Fetch data
-  const fetchWarrantiesData = async () => {
+  const fetchWarrantiesData = useCallback(async () => {
     if (!isAuthenticated) {
       setError('Authentication required');
       setLoading(false);
@@ -291,7 +287,7 @@ const WarrantiesPage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [isAuthenticated]);
 
   useEffect(() => {
     fetchWarrantiesData();

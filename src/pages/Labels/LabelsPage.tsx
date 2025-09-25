@@ -10,13 +10,6 @@ import {
   DialogTitle,
   DialogContent,
   DialogActions,
-  TextField,
-  FormControl,
-  InputLabel,
-  Select,
-  MenuItem,
-  Switch,
-  FormControlLabel,
   Chip,
   IconButton,
   Table,
@@ -30,12 +23,6 @@ import {
   Snackbar,
   Tabs,
   Tab,
-  Divider,
-  List,
-  ListItem,
-  ListItemText,
-  ListItemSecondaryAction,
-  Tooltip,
   Badge,
   CircularProgress
 } from '@mui/material';
@@ -55,7 +42,6 @@ import {
   Refresh as RefreshIcon,
   TrendingUp as TrendingUpIcon,
   TrendingDown as TrendingDownIcon,
-  CalendarToday as CalendarTodayIcon
 } from '@mui/icons-material';
 import LabelDesigner from '../../components/LabelDesigner/LabelDesigner';
 import DashboardHeader from '../../components/Layout/DashboardHeader';
@@ -104,13 +90,6 @@ const LabelsPage: React.FC = () => {
     avgPrintsPerTemplate: 0
   });
 
-  // Form state for new template
-  const [newTemplate, setNewTemplate] = useState({
-    name: '',
-    type: 'custom' as 'product' | 'invoice' | 'repair' | 'custom',
-    width: 50,
-    height: 30
-  });
 
   const templateTypes = [
     { value: 'product', label: 'Product Labels', icon: <InventoryIcon />, color: '#4CAF50' },
@@ -128,7 +107,7 @@ const LabelsPage: React.FC = () => {
       setLoading(false);
       setError('Please log in to access label templates');
     }
-  }, [isAuthenticated, token]);
+  }, [isAuthenticated, token, loadTemplates, loadPrintHistory, loadStats]);
 
   // Auto-refresh preview when templates are updated
   useEffect(() => {
