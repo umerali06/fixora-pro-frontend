@@ -16,9 +16,10 @@ export const withTimeout = <T>(
 export const withRetry = async <T>(
   fn: () => Promise<T>,
   maxRetries: number = 3,
-  delayMs: number = 1000
+  initialDelayMs: number = 1000
 ): Promise<T> => {
   let lastError: Error;
+  let currentDelay = initialDelayMs;
   
   for (let i = 0; i < maxRetries; i++) {
     try {
@@ -36,14 +37,14 @@ export const withRetry = async <T>(
       }
       
       if (i < maxRetries - 1) {
-        console.log(`Retry ${i + 1}/${maxRetries} after ${delayMs}ms delay`);
-        await new Promise(resolve => setTimeout(resolve, delayMs));
-        delayMs *= 2; // Exponential backoff
+        console.log(`Retry ${i + 1}/${maxRetries} after ${currentDelay}ms delay`);
+        await new Promise(resolve => setTimeout(resolve, currentDelay));
+        currentDelay *= 2; // Exponential backoff
       }
     }
   }
   
-  throw lastError!;
+  throw new Error(lastError?.message || 'Max retries exceeded');
 };
 
 // Combined timeout and retry utility

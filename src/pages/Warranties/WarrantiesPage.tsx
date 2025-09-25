@@ -297,7 +297,7 @@ const WarrantiesPage: React.FC = () => {
     fetchWarrantiesData();
     fetchRepairTickets();
     fetchCustomers();
-  }, [isAuthenticated]);
+  }, [isAuthenticated, fetchWarrantiesData]);
 
   // Filter warranties
   const filteredWarranties = warranties.filter(warranty => {

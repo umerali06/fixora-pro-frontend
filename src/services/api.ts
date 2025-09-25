@@ -2,34 +2,6 @@ import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { getValidToken } from '../store/slices/authSlice';
 import { withTimeoutAndRetry } from '../utils/timeoutHandler';
 
-// Helper function to get current user's orgId from Redux store
-const getCurrentUserOrgId = (): string | null => {
-  try {
-    // Try to get from localStorage first (fallback)
-    const token = localStorage.getItem('token');
-    if (token) {
-      const payload = JSON.parse(atob(token.split('.')[1]));
-      if (payload.orgId) {
-        return payload.orgId;
-      }
-    }
-    
-    // Try to get from Redux store
-    if (typeof window !== 'undefined' && (window as any).__REDUX_STORE__) {
-      const state = (window as any).__REDUX_STORE__.getState();
-      if (state?.auth?.user?.orgId) {
-        return state.auth.user.orgId;
-      }
-    }
-    
-    // Return null instead of hardcoded fallback
-    console.warn('⚠️ Could not get orgId from store');
-    return null;
-  } catch (error) {
-    console.warn('⚠️ Error getting orgId from store:', error);
-    return null;
-  }
-};
 
 // API base configuration
 // Use environment variables for both development and production

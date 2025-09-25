@@ -49,7 +49,6 @@ import {
   History as HistoryIcon,
   Settings as SettingsIcon,
   Label as LabelIcon,
-  QrCode as QrCodeIcon,
   Receipt as ReceiptIcon,
   Build as BuildIcon,
   Inventory as InventoryIcon,
@@ -87,7 +86,6 @@ interface PrintHistory {
 }
 
 const LabelsPage: React.FC = () => {
-  const { t } = useTranslation();
   const { isAuthenticated, token } = useAppSelector((state) => state.auth);
   const [templates, setTemplates] = useState<LabelTemplate[]>([]);
   const [printHistory, setPrintHistory] = useState<PrintHistory[]>([]);
