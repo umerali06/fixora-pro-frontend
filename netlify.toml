@@ -1,0 +1,13 @@
+[build]
+  publish = "build"
+  command = "npm run build"
+
+[build.environment]
+  GENERATE_SOURCEMAP = "false"
+  CI = "false"
+  DISABLE_ESLINT_PLUGIN = "true"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
