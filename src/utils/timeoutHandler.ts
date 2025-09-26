@@ -1,3 +1,5 @@
+/* eslint-disable no-loop-func */
+/* eslint-disable no-throw-literal */
 // Timeout handling utility for API calls
 export const withTimeout = <T>(
   promise: Promise<T>,

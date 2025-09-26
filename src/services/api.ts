@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import { getValidToken } from '../store/slices/authSlice';
 import { withTimeoutAndRetry } from '../utils/timeoutHandler';

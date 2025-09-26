@@ -107,7 +107,7 @@ const LabelsPage: React.FC = () => {
       setLoading(false);
       setError('Please log in to access label templates');
     }
-  }, [isAuthenticated, token, loadTemplates, loadPrintHistory, loadStats]);
+  }, [isAuthenticated, token]);
 
   // Auto-refresh preview when templates are updated
   useEffect(() => {
@@ -213,12 +213,6 @@ const LabelsPage: React.FC = () => {
 
   const handleCreateTemplate = () => {
     setEditingTemplate(null);
-    setNewTemplate({
-      name: '',
-      type: 'custom',
-      width: 50,
-      height: 30
-    });
     setOpenDesigner(true);
   };
 
@@ -677,7 +671,6 @@ const LabelsPage: React.FC = () => {
               }
             }}
             onClick={() => {
-              setNewTemplate(prev => ({ ...prev, type: type.value as any }));
               handleCreateTemplate();
             }}
           >

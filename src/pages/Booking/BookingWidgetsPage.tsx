@@ -355,7 +355,7 @@ const BookingWidgetsPage: React.FC = () => {
                   </Typography>
                     <Typography variant="body2" sx={{ color: '#6B7280', fontSize: '12px' }}>
                       ID: {widget.id}
-                    </Typography>
+                  </Typography>
                   </Box>
                 </Box>
               </TableCell>
@@ -1001,7 +1001,7 @@ const BookingWidgetsPage: React.FC = () => {
               display: { xs: 'none', sm: 'block' }
             }}>
               Last updated: {lastUpdated.toLocaleTimeString()}
-            </Typography>
+        </Typography>
         <Button
               variant="outlined"
               size="small"
